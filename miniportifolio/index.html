@@ -3,17 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miniportifolio</title>
+  <title>Átila Bezerra | Portfólio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Atila Almeida</h1>
-    <p><strong>Curso:</strong> Desenvolvimento de Software</p>
-    <p>
-      Olá! Sou estudante e estou construindo meu miniportifolio para apresentar
-      um pouco sobre mim, meus estudos e minha evolução na área de tecnologia.
-    </p>
-    <p>Meu objetivo é aprender cada vez mais e desenvolver projetos práticos.</p>
+  <main class="pagina">
+    <header class="cabecalho">
+      <p class="apresentacao">Olá, eu sou</p>
+      <h1>Átila Bezerra</h1>
+      <p class="cargo">Desenvolvedor Back-end em formação</p>
+
+      <nav aria-label="Navegação principal">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <p>
+        Sou profissional de back-end C# e .NET em formação, com experiência em
+        pesquisa e desenvolvimento de microsserviços e aplicações em Python.
+        Também já atuei com infraestrutura, manutenção de servidores,
+        sistemas distribuídos e ambientes com Docker e Kubernetes.
+      </p>
+      <p>
+        Gosto de aprender coisas novas e de trabalhar de forma dedicada e
+        flexível, de acordo com as necessidades de cada projeto.
+      </p>
+    </section>
+
+    <section id="tecnologias">
+      <h2>Tecnologias</h2>
+      <ul class="lista-tecnologias">
+        <li>C#</li>
+        <li>.NET</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Docker</li>
+        <li>Kubernetes</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Para saber mais sobre minha trajetória profissional, acesse meu perfil:</p>
+      <a class="botao-linkedin" href="https://www.linkedin.com/in/atila-bezerra" target="_blank" rel="noopener noreferrer">
+        Ver perfil no LinkedIn
+      </a>
+    </section>
+
+    <footer>
+      <p>Feito por Átila Bezerra</p>
+    </footer>
   </main>
 </body>
 </html>
