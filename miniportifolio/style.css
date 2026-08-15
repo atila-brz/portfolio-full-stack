@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  background-color: #eeeeee;
+  color: #222222;
+  font-family: Arial, sans-serif;
+}
+
+.pagina {
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: white;
+  border-top: 7px solid #333333;
+}
+
+.cabecalho {
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+
+.apresentacao {
+  margin-bottom: 0;
+  color: #666666;
+}
+
+h1 {
+  margin: 0;
+}
+
+.cargo {
+  margin-top: 5px;
+  color: #444444;
+}
+
+nav a {
+  margin: 10px;
+  color: #222222;
+  text-decoration: none;
+}
+
+section {
+  padding: 20px 0;
+  border-bottom: 1px solid gray;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.lista-tecnologias {
+  padding: 0;
+  list-style: none;
+}
+
+.lista-tecnologias li {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 10px;
+  background-color: #eeeeee;
+}
+
+.botao-linkedin {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #0a66c2;
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  color: #666666;
+}
+
+@media (max-width: 600px) {
+  .pagina {
+    margin: 0;
+    padding: 20px;
+  }
+
+  nav a {
+    display: block;
+  }
+}
