@@ -1,94 +1,90 @@
-const tecnologias = [
-  'C#',
-  '.NET',
-  'Python',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Docker',
-  'Kubernetes',
+import { useState } from 'react';
+import Header from './components/Header.jsx';
+import Sobre from './components/Sobre.jsx';
+import Tecnologias from './components/Tecnologias.jsx';
+import Contato from './components/Contato.jsx';
+import Footer from './components/Footer.jsx';
+
+const perfil = {
+  apresentacao: 'Olá, eu sou',
+  nome: 'Átila Bezerra',
+  cargo: 'Desenvolvedor Back-end em formação',
+  linkedin: 'https://www.linkedin.com/in/atila-bezerra',
+};
+
+const linksNavegacao = [
+  { href: '#sobre', texto: 'Sobre mim' },
+  { href: '#tecnologias', texto: 'Tecnologias' },
+  { href: '#contato', texto: 'Contato' },
 ];
 
-function Header() {
-  return (
-    <header className="cabecalho">
-      <p className="apresentacao">Olá, eu sou</p>
-      <h1>Átila Bezerra</h1>
-      <p className="cargo">Desenvolvedor Back-end em formação</p>
+const paragrafosSobre = [
+  'Sou profissional de back-end C# e .NET em formação, com experiência em pesquisa e desenvolvimento de microsserviços e aplicações em Python. Também já atuei com infraestrutura, manutenção de servidores, sistemas distribuídos e ambientes com Docker e Kubernetes.',
+  'Gosto de aprender coisas novas e de trabalhar de forma dedicada e flexível, de acordo com as necessidades de cada projeto.',
+];
 
-      <nav aria-label="Navegação principal">
-        <a href="#sobre">Sobre mim</a>
-        <a href="#tecnologias">Tecnologias</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </header>
-  );
-}
+const tecnologias = [
+  { nome: 'C#', categoria: 'Back-end' },
+  { nome: '.NET', categoria: 'Back-end' },
+  { nome: 'Python', categoria: 'Back-end' },
+  { nome: 'JavaScript', categoria: 'Front-end' },
+  { nome: 'HTML', categoria: 'Front-end' },
+  { nome: 'CSS', categoria: 'Front-end' },
+  { nome: 'Docker', categoria: 'DevOps' },
+  { nome: 'Kubernetes', categoria: 'DevOps' },
+];
 
-function Sobre() {
-  return (
-    <section id="sobre">
-      <h2>Sobre mim</h2>
-      <p>
-        Sou profissional de back-end C# e .NET em formação, com experiência em
-        pesquisa e desenvolvimento de microsserviços e aplicações em Python.
-        Também já atuei com infraestrutura, manutenção de servidores, sistemas
-        distribuídos e ambientes com Docker e Kubernetes.
-      </p>
-      <p>
-        Gosto de aprender coisas novas e de trabalhar de forma dedicada e
-        flexível, de acordo com as necessidades de cada projeto.
-      </p>
-    </section>
-  );
-}
-
-function Tecnologias() {
-  return (
-    <section id="tecnologias">
-      <h2>Tecnologias</h2>
-      <ul className="lista-tecnologias">
-        {tecnologias.map((tecnologia) => (
-          <li key={tecnologia}>{tecnologia}</li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-function Contato() {
-  return (
-    <section id="contato">
-      <h2>Contato</h2>
-      <p>Para saber mais sobre minha trajetória profissional, acesse meu perfil:</p>
-      <a
-        className="botao-linkedin"
-        href="https://www.linkedin.com/in/atila-bezerra"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ver perfil no LinkedIn
-      </a>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <p>Feito por Átila Bezerra</p>
-    </footer>
-  );
-}
+const categoriasTecnologias = [
+  'Todas',
+  'Back-end',
+  'Front-end',
+  'DevOps',
+];
 
 export default function App() {
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState('Todas');
+  const [cliquesContato, setCliquesContato] = useState(0);
+
+  const tecnologiasFiltradas =
+    categoriaSelecionada === 'Todas'
+      ? tecnologias
+      : tecnologias.filter(
+          (tecnologia) => tecnologia.categoria === categoriaSelecionada
+        );
+
+  function selecionarCategoria(categoria) {
+    setCategoriaSelecionada(categoria);
+  }
+
+  function registrarCliqueContato() {
+    setCliquesContato(cliquesContato + 1);
+  }
+
   return (
     <main className="pagina">
-      <Header />
-      <Sobre />
-      <Tecnologias />
-      <Contato />
-      <Footer />
+      <Header
+        apresentacao={perfil.apresentacao}
+        nome={perfil.nome}
+        cargo={perfil.cargo}
+        links={linksNavegacao}
+      />
+      <Sobre titulo="Sobre mim" paragrafos={paragrafosSobre} />
+      <Tecnologias
+        titulo="Tecnologias"
+        itens={tecnologiasFiltradas}
+        categorias={categoriasTecnologias}
+        categoriaSelecionada={categoriaSelecionada}
+        aoSelecionarCategoria={selecionarCategoria}
+      />
+      <Contato
+        titulo="Contato"
+        texto="Para saber mais sobre minha trajetória profissional, acesse meu perfil:"
+        link={perfil.linkedin}
+        textoBotao="Ver perfil no LinkedIn"
+        cliques={cliquesContato}
+        aoClicar={registrarCliqueContato}
+      />
+      <Footer autor={perfil.nome} />
     </main>
   );
 }

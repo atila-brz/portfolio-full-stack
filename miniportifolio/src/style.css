@@ -64,12 +64,29 @@ p {
   background-color: #eeeeee;
 }
 
-.botao-linkedin {
+.botao {
   display: inline-block;
+  margin: 5px;
   padding: 8px 12px;
   background-color: #0a66c2;
+  border: 0;
   color: white;
+  font: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.botao-ativo {
+  background-color: #333333;
+}
+
+.grupo-botoes {
+  margin-bottom: 10px;
+}
+
+.contador-cliques {
+  margin-bottom: 0;
+  color: #666666;
 }
 
 footer {
